@@ -1,0 +1,96 @@
+/* Regla lo mas general posible */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: lavender;
+}
+
+header{
+    background-color: #227570;
+    color: white;
+    padding: 16px 0;
+}
+
+header h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    text-align: center;
+}
+
+.index header nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+.index header nav ul li{
+    margin: 0 16px;
+    /* Para sacar los puntos de la lista */
+    list-style: none;
+}
+
+.index header nav ul li a{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 7px;
+}
+
+.index header nav ul li a:hover{
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
+}
+
+.index section{
+    padding: 20px 0;
+}
+
+.index section h2, section p, section ul{
+    text-align: center;
+    color: #333
+}
+
+.services-img{
+    width: 80%;
+    height: 50vh;
+    margin: 20px 10%;
+    /* Borde necesita tipo de borde, color y grosor */
+    border: solid black 3px;
+    box-shadow: 50px 36px 5px brown;
+}
+
+.services-img:hover{
+    border: solid red 3px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enviar, .borrar{
+    color: whitesmoke;
+}
+
+.enviar{
+    background-color: green;
+}
+
+.borrar{
+    background-color: red;
+}
+
+footer{
+    background-color: #333;
+    color: wheat;
+    text-align: center;
+    padding: 5px 0;
+    width: 100%;
+}
