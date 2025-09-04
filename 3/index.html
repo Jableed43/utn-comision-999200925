@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=browse_activity" />
+    <script src="https://kit.fontawesome.com/ef88cf4afb.js" crossorigin="anonymous"></script>
 </head>
 <body class="index">
     <header>
         <div>
-            <h1> Sitio web Standard </h1>
+            <h1 class="cookie-regular"> Sitio <span class="web-title cookie-regular">web</span>  Standard <span class="material-symbols-outlined">
+browse_activity
+</span> </h1>
             <nav>
                 <ul>
                     <li> <a href="#home">Inicio</a> </li>
@@ -35,14 +39,22 @@
         </section>
          <section id="services" >
             <div>
-                <h2>Servicios</h2>
+                <h2>Servicios <i class="fa-solid fa-pen-ruler"></i></h2>
                 <ul>
-                    <li>Desarrollo web</li>
-                    <li>Diseño Responsivo</li>
+                    <li>Desarrollo web <img src="./assets/img/computer-solid-full.svg" alt="pc"> </li>
+                    <li>Diseño Responsivo <i class="fa-solid fa-computer"></i></li>
                     <li>Consultoria tecnica</li>
                 </ul>
                 <img class="services-img" src="https://concepto.de/wp-content/uploads/2015/03/paisaje-e1549600034372.jpg" alt="paisaje">
             </div>
+        </section>
+
+        <section>
+            <p class="texto">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem atque obcaecati doloremque. Temporibus aperiam laboriosam, delectus animi architecto error voluptatibus omnis optio odio facere mollitia cumque officia maiores voluptatem ea.
+                Voluptate officiis fugit odio repellat voluptatum sed facere porro adipisci quam laborum quidem cumque corporis voluptatem, id magnam aliquid maxime labore eligendi veniam dolore rem nesciunt. Debitis minus quas quia!
+                Exercitationem aspernatur quibusdam tempora voluptate iste incidunt doloremque. Vitae quo quidem maxime dolor, magnam eveniet! Error, rem dicta debitis iusto quis maxime dolorum repudiandae reprehenderit! Dolore magni vitae velit asperiores.
+            </p>
         </section>
 
         <section id="contact" >
@@ -58,8 +70,8 @@
                 <textarea name="message"></textarea>
 
                 <div>
-                    <button class="enviar" type="submit">Enviar</button>
-                    <button class="borrar" type="reset" >Borrar</button>
+                    <button class="enviar" type="submit">Enviar <i class="fa-solid fa-check"></i></button>
+                    <button class="borrar" type="reset" >Borrar <i class="fa-solid fa-trash-can"></i></button>
                 </div>
             </form>
         </section>
@@ -71,6 +83,5 @@
             <p>Creado por Jlopez</p>
         </div>
     </footer>
-
 </body>
 </html>
