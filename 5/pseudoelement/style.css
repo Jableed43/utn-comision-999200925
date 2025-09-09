@@ -1,0 +1,30 @@
+/* Pseudoelements */
+/* Añade pseudoelemento antes, al inicio */
+h1::before{
+    content: "🎈";
+}
+
+h1::after{
+    content: "🌟";
+}
+
+p::first-line{
+    color: chartreuse;
+    font-size: 30px;
+}
+
+span{
+    font-weight: bolder;
+}
+
+input::placeholder{
+    color: green;
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input::after{
+    content: "🔎";
+    position: absolute;
+    transform: translateY(50%);
+}

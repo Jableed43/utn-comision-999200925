@@ -1,0 +1,46 @@
+/* Pseudo class */
+li{
+    border: solid black 2px
+}
+
+/* First child */
+li:first-child{
+    color: red;
+    border: none;
+}
+
+/* Last child */
+li:last-child{
+    color: blueviolet;
+    border: none;
+}
+
+/* Definimos a cuales afectamos */
+/* Afectamos al tercer hijo */
+li:nth-child(3){
+    font-size: 24px;
+    color: cadetblue;
+}
+
+/* Afecta cada N items empezando desde el primero (en este caso es el primero) */
+/* Cada 5 afecta al primero */
+li:nth-child(5n+1){
+    text-decoration: line-through;
+}
+
+/* Afecta cada N cantidad items */
+/* Afecta cada 3 items */
+li:nth-child(3n){
+    text-transform: uppercase;
+    color: blue;
+}
+
+/* Afectando items pares */
+li:nth-child(even){
+    background-color: lightgreen;
+}
+
+/* Afectando los items impares */
+li:nth-child(odd){
+    background-color: lightsalmon;
+}
