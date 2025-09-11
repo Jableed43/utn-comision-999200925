@@ -1,0 +1,49 @@
+.flex-container{
+    display: flex;
+    background-color: gray;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.flex-item{
+    background-color: lightgreen;
+    border: 2px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 30px;
+}
+
+/* esta clase deja el mismo espacio entre elementos y sus bordes externos */
+.flex-equal-space{
+    justify-content: space-evenly;
+}
+
+.flex-fixed-flexible{
+    justify-content: space-between;
+}
+
+/* Tamaño fijo */
+.flex-fixed-flexible .fixed{
+    width: 100px;
+}
+
+.flex-fixed-flexible .flexible{
+    flex-grow: 1;
+}
+
+/* Alineacion vertical y horizontal */
+.flex-align-center{
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-order-size{
+    justify-content: space-between;
+}
+
+.flex-item-2{
+    width: 700px;
+    background-color: lightcoral;
+}
