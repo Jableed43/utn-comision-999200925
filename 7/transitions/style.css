@@ -1,0 +1,110 @@
+body {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.box.heartbeat{
+    background-color: transparent;
+}
+
+div img{
+    width: 100px;
+}
+
+.transition-all{
+    background-color: red;
+}
+
+.transition-all:hover{
+    background-color: yellowgreen;
+    transform: scale(1.1);
+    transition-duration: 2s;
+    color: blue;
+}
+
+.transition-width{
+    background-color: tomato;
+    width: 150px;
+}
+
+.transition-width:hover{
+    width: 200px;
+    transition-duration: 2s;
+}
+
+/* complex effects */
+.heartbeat:hover{
+    animation: heartbeat 0.6s infinite;
+}
+
+@keyframes heartbeat{
+    0%, 100%{ transform: scale(1); }
+    50%{ transform: scale(1.2); }
+}
+
+/* Rainbow */
+.rainbow{
+    animation: rainbow 2s infinite linear;
+}
+
+.rainbow2{
+    animation: rainbow 2s infinite;
+}
+
+@keyframes rainbow{
+    0%{ background-color: red ; }
+    25%{ background-color: orange; }
+    50%{ background-color: yellow; }
+    75%{ background-color: green; }
+    100%{ background-color: blue; }
+}
+
+/* Spinner */
+@keyframes spin{
+    to { transform: rotate(360deg); }
+}
+
+.spinner{
+    border-radius: 50%;
+    border: 5px dashed rgb(98, 95, 95);
+    border-top-color: aquamarine;
+    /* border-top-style: groove; */
+}
+
+.spinner:hover{
+    animation: spin 1s linear infinite;
+}
+
+/* Slide up */
+.slide-up{
+    animation: slideUp 0.8s ease-out infinite forwards;
+}
+
+@keyframes slideUp{
+    from{ transform: translateY(100px); opacity: 0; }
+    to{ transform: translateY(0); opacity: 1; }
+}
+
+/* Rocket */
+.rocket {
+    animation: liftOff 1.5s ease-in forwards infinite;
+    background-color: blue;
+}
+
+@keyframes liftOff{
+    0%{ transform: translateY(0); opacity: 1; }
+    100%{ transform: translateY(-300px); opacity: 0; }
+}
