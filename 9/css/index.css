@@ -1,0 +1,121 @@
+.space-grotesk-700 {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.logo{
+    width: 100px;
+    transition: all 0.7s ease-in;
+}
+
+.logo:hover{
+    filter: drop-shadow(2px 4px 6px white);
+}
+
+.btn-outline-success{
+    --bs-btn-bg: black;
+}
+
+.carousel{
+    width: 80vw;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.carousel-inner{
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px #3f3838;
+}
+
+.carousel-item img{
+    height: 72vh;
+}
+
+.carousel-control-prev-icon , .carousel-control-next-icon{
+    background-color: black;
+}
+
+.carousel-caption{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar, .navbar-brand, .nav-link{
+    color: rgb(31, 25, 25);
+    /* --bs-navbar-color: orange; */
+}
+
+.container-xl{
+    flex-wrap: wrap;
+    row-gap: 25px;
+}
+
+/* Footer */
+
+header nav{
+        margin-bottom: 25px;
+}
+
+header nav div.container-fluid, footer{
+    background-color: var(--bs-body-color);
+}
+
+nav.navbar {
+    --bs-navbar-padding-y: 0
+}
+
+ul.navbar-nav{
+    gap: 10px;
+}
+
+.nav-item{
+    transition: all 0.7s ease-in;
+}
+
+.nav-item:hover{
+    background-color: black;
+    text-decoration: underline;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px white;
+}
+
+footer{
+    padding-top: 40px;
+    margin-top: 40px;
+}
+
+footer li:first-child{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.footer-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-social{
+    display: flex;
+    gap: 20px;
+    color: white;
+    align-self: center;
+}
+
+header .nav-item .nav-link, footer .footer-wrapper ul li {
+    color: var(--bs-gray-400);
+}
+
+.footer-social li i{
+    background-color: black;
+    padding: 6px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    font-size: 12px;
+    width: 25px;
+    height: 23px;
+    text-align: center;
+}
