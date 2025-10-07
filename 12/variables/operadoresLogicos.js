@@ -36,7 +36,7 @@ let dinero = 500000;
 // Si condicional
 // La condicion positiva te encierra en los valores esperados
 if (clima === "lluvia" && viento === "mucho" && dinero < 20000) {
-  console.log("No slgo de fiesta y me quedo en casa");
+  console.log("No salgo de fiesta y me quedo en casa");
 } // else significa "Si no"
 else {
   console.log("salgo de fiesta");
