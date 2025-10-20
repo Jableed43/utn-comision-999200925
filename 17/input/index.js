@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const bgColor = document.querySelector("#bgColor")
     const resultado = document.querySelector("#resultado")
     const body = document.querySelector("body")
+    const bgColorText = document.querySelector("#bgColorText")
 
     // Funciones
     function actualizarTexto() {
@@ -27,6 +28,21 @@ document.addEventListener("DOMContentLoaded", function() {
         resultado.style.color = color
     }
 
+    function actualizarFontSize() {
+        let size = `${fontSize.value}px`
+        // En css font-size // en js fontSize
+        resultado.style.fontSize = size
+    }
+
+    function actualizarBgColor() {
+        let bg = bgColor.value
+        body.style.backgroundColor = bg
+    }
+
+    function actualizarBgColorText() {
+        let bg = bgColorText.value
+        resultado.style.backgroundColor = bg
+    }
 
 
     // Eventos
@@ -35,6 +51,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // evento input -> Si tiene contenido o este se modifica
     textoInput.addEventListener("input", actualizarTexto)
     colorInput.addEventListener("input", actualizarColor)
+    fontSize.addEventListener("input", actualizarFontSize)
+    bgColor.addEventListener("input", actualizarBgColor)
+    bgColorText.addEventListener("input", actualizarBgColorText)
 })
 
 /*
