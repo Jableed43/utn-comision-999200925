@@ -1,0 +1,21 @@
+.caja{
+    padding: 30px;
+    border: solid black 2px;
+    margin: 10px;
+
+}
+
+#div-externo{
+    background-color: gray;
+}
+
+#div-interno{
+    background-color: red;
+}
+
+.log{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
