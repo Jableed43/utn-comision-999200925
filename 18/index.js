@@ -3,7 +3,6 @@ const taskInput = document.getElementById("taskInput")
 const addTaskBtn = document.getElementById("addTaskBtn")
 const taskList = document.getElementById("taskList")
 
-
 // Tarea 2. Creamos boton de eliminar dentro de la tarea
 
 function createDeleteButton() {
@@ -15,7 +14,7 @@ function createDeleteButton() {
     deleteBtn.className = "delete-btn"
 
     deleteBtn.addEventListener("click", function() {
-            this.parentNode.remove()
+    this.parentNode.remove()
     })
     return deleteBtn
 }
@@ -32,13 +31,6 @@ function createTaskSpan(text) {
     // Clicn en el texto y se completa la tarea
     taskSpan.addEventListener("click", function() {
         this.parentNode.classList.toggle("completed")
-    })
-
-    // Extra soporte para teclado
-    taskSpan.addEventListener("keypress", function(evento) {
-        // evento -> tiene detalles del evento sucedido, ej que tecla se presionó
-        if(evento.key === "Enter"){
-        }
     })
 
     return taskSpan
@@ -65,4 +57,42 @@ function validateInput() {
     return true
 }
 
+//5. Funcion de agregar tarea
+function agregarTarea() {
+    //Validamos si se escribio texto en la tarea
+    // La negacion es porque al fallar retorna false
+    // Early return
+    if(!validateInput()){
+        // El return sale de la funcion
+        // Finaliza la ejecucion
+        return
+    }
 
+    const taskText = taskInput.value.trim()
+
+    // Crear los elementos que contienen a las tareas
+   const listItem = document.createElement('li')
+   listItem.className = "task-item"
+
+   // Utilizamos los componentes reutilizables
+   // Creamos el span para el texto de la tarea
+   const taskSpan = createTaskSpan(taskText)
+   // Creamos el boton para la eliminacion
+   const deleteBtn = createDeleteButton()
+
+   // Ensamblar
+   // Al list item le añadimos el span de texto de la tarea y el boton de borrado
+   listItem.appendChild(taskSpan)
+   listItem.appendChild(deleteBtn)
+   // Añadimos nuestro list item <li> a nuestra lista de tareas <ul>
+   taskList.appendChild(listItem)
+
+   // limpiar el input quitando lo que haya escrito
+    taskInput.value = ""
+    // Enfoca el cursor en el input para facilitar el agregado de mas tareas
+    taskInput.focus()
+}
+
+// Eventos
+// Con el boton de agregar, escucharmos el click y si sucede, entonces ejecuta agregarTarea
+addTaskBtn.addEventListener("click", agregarTarea)

@@ -78,7 +78,7 @@ h1 {
 }
 
 /* Estilo para tarea completada */
-#taskList li.completed {
+#taskList li.completed span {
     text-decoration: line-through;
     color: #888;
     background-color: #e0e0e0;
