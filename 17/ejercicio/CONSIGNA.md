@@ -13,7 +13,6 @@ Crea un selector de temas interactivo que permita cambiar el nombre y el tema vi
 ### **2. Gestión de Clases CSS (Nivel Básico)**
 - Agregar y remover clases CSS usando `classList`
 - Cambiar el aspecto visual de elementos dinámicamente
-- Usar `data-*` attributes para identificar elementos
 
 ### **3. Eventos del DOM (Nivel Básico)**
 - Conectar eventos de click a botones
@@ -36,7 +35,8 @@ Crea un selector de temas interactivo que permita cambiar el nombre y el tema vi
 ### **Tarea 3: Botones de Tema**
 1. Usar `querySelectorAll('.tema-btn')` para obtener todos los botones
 2. Conectar eventos de click a cada botón
-3. Usar `getAttribute('data-tema')` para obtener el tema del botón
+3. Usar `getAttribute('data-tema')` para obtener el tema del botón. 
+Ejemplo -> const temaClaroBtn = document.querySelector('[data-tema="claro"]');
 4. Implementar cambio de clases: `classList.remove()` y `classList.add()`
 
 ### **Tarea 4: Botón Resetear**
