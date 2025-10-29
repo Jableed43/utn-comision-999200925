@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Selectores - Referencias DOM
     const likeButton = document.getElementById("likeButton")
     const likeCountDisplay = document.getElementById("likeCount")
+    const resetButton = document.getElementById("resetLikeCount")
 
     // Cargar los me gusta desde la memoria (localStorage)
     // los cargamos al html (span)
@@ -46,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Le añadimos la clase pop al span likeCount - efecto pop
         likeCountDisplay.classList.add("pop")
 
-
         //Quitar la clase pop despues de 200 milisegundos
         setTimeout(() => {
             likeCountDisplay.classList.remove("pop")
@@ -54,6 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     })
 
+    resetButton.addEventListener("click", () => {
+        // pasamos contador a 0
+        likeCounter = 0
+        // mostramos en display 0
+        likeCountDisplay.textContent = likeCounter
+        // guardamos los likes
+        saveLikes()
+        // volvemos a cargar
+        loadLikes()
+    })
+
     // Iniciamos el contador al abrir la pagina
     loadLikes()
 })
+// borras el item del localStorage
+// localStorage.removeItem("nombreItem")
