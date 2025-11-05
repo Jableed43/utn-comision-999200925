@@ -3,14 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-// Componente funcional
-// Empieza con mayuscula
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    // <> </> -> react fragments
-    // es neutro, no provee comportamiento
     <>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -36,7 +32,4 @@ function App() {
   )
 }
 
-// Default significa que de este archivo solo se exporta 1 unico
-// elemento
-// Sin default se deben usar las llaves y se pueden exportar varios elementos
 export default App
