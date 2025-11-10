@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.subtitulo {
+  text-align: center;
+  color: #6c757d;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+}
+
+/* Formulario */
+.formulario-tarea {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.input-tarea {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: all 0.3s;
+}
+
+.input-tarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn-agregar-tarea {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-agregar-tarea:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Contador de tareas */
+.contador-tareas {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+}
+
+.estadistica {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.estadistica .numero {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.estadistica .numero.pendientes {
+  color: #ff9800;
+}
+
+.estadistica .numero.completadas {
+  color: #4caf50;
+}
+
+.estadistica .etiqueta {
+  color: #6c757d;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.filtros button {
+  padding: 10px 20px;
+  border: 2px solid #dee2e6;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  color: #6c757d;
+  transition: all 0.3s;
+}
+
+.filtros button:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.filtros .filtro-activo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+/* Lista de tareas */
+.lista-tareas {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.tarea-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.tarea-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tarea-card.completada {
+  background: #e8f5e9;
+  border-color: #4caf50;
+  opacity: 0.8;
+}
+
+.tarea-contenido {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.checkbox-tarea {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.tarea-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tarea-texto span:first-child {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.texto-tachado {
+  text-decoration: line-through;
+  color: #6c757d !important;
+}
+
+.fecha-creacion {
+  font-size: 0.85em;
+  color: #6c757d;
+}
+
+.btn-eliminar-tarea {
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: all 0.3s;
+}
+
+.btn-eliminar-tarea:hover {
+  background: #da190b;
+  transform: scale(1.1);
+}
+
+.lista-vacia {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.lista-vacia p {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+/* Información final */
+.info-final {
+  margin-top: 40px;
+  padding: 25px;
+  background: #e7f3ff;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.info-final h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.info-final ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-final li {
+  color: #495057;
+  margin: 8px 0;
+  font-size: 1em;
+}
+
