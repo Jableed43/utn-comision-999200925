@@ -170,11 +170,6 @@ const completadas = tareas.filter(t => t.completada).length
 
 ---
 
-## 📅 Fecha de entrega
-[Indica la fecha aquí]
-
----
-
 ## 🎨 Nota sobre estilos
 Los estilos CSS ya están incluidos. Solo necesitas enfocarte en la lógica de React.
 
