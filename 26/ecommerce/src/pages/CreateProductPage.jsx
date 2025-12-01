@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from '../components/Input'
 import { statusData, statusTranslations, translateStatus } from "../utils/statusTranslations";
+import usePostProduct from "../hooks/usePostProduct";
 
 function CreateProductPage() {
   const navigate = useNavigate();
 
-  // hook
-    // clase proxima vemos el hook de creacion
-
+  // hook de creacion
+  const { error, fetchProduct } = usePostProduct()
   // state
   const [form, setForm] = useState({
     name: "",
@@ -16,7 +16,7 @@ function CreateProductPage() {
     status: "AVAILABLE",
     price: 0,
     stock: 0,
-    image: null
+    image: ""
   })
   // handler
   // handler para los inputs
@@ -28,12 +28,13 @@ function CreateProductPage() {
     })
   }
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault()
     // En null debemos mandar el hook
-    const success = null
-    console.log(form)
-    navigate("/products")
+    const success = await fetchProduct(form)
+    if(success){
+          navigate("/products")
+    }
   }
 
   return (
@@ -53,11 +54,11 @@ function CreateProductPage() {
 
         {/* Description */}
         <label htmlFor="description">Descripcion</label>
-        <textarea name="description" isRequired id="description" onChange={handleInputChange} value={form.description} placeholder="Escriba la descripcion del producto"></textarea>
+        <textarea name="description" required id="description" onChange={handleInputChange} value={form.description} placeholder="Escriba la descripcion del producto"></textarea>
 
         {/* Status */}
         <label htmlFor="status">Estado</label>
-        <select name="status" isRequired value={form.status} id="status" onChange={handleInputChange} >
+        <select name="status" required value={form.status} id="status" onChange={handleInputChange} >
            { statusData.map((status) => (
             <option key={status} value={status}>
                 {statusTranslations[status] || status}
@@ -71,8 +72,8 @@ function CreateProductPage() {
         {/* Stock */}
         <Input isRequired={true} label="Stock" labelId="stock" type="number" value={form.stock} onChange={handleInputChange} />
 
-           {/* mas adelante colocamos el error aqui */}
-
+           {/* error puede ser null (falsy). si hay error lo muestra  */}
+           { error && <p> {error.message || error} </p> }
            <button type="submit" > Crear producto </button>
       </form>
     </div>

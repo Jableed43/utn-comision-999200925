@@ -1,6 +1,24 @@
 import React from 'react'
+import useDeleteProduct from '../hooks/useDeleteProduct'
 
 function ProductCard({products}) {
+
+  const {error, deleteProduct} = useDeleteProduct()
+
+  const handleDeleteProduct = async (e, productId) => {
+    e.stopPropagation()
+    if(window.confirm("¿Estas seguro de que queres eliminar el producto?")){
+     const response = await deleteProduct(productId)
+     if(response){
+      // refresca la pagina
+      window.location.reload()
+      // lo que estaria bueno: lazy loading, refresca la pagina y vuelve a hacer llamado a la api
+      // dejar de mostrar el registro sin refrescar
+      return
+     }
+    }
+  }
+
   return (
     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "10px", justifyContent: "center" }}>
       {products.map((product) => (
@@ -13,8 +31,10 @@ function ProductCard({products}) {
           <li> Stock: {product.stock} </li>
           <li> Estado: {product.status} </li>
           </ul>
+          <button onClick={ (e) => handleDeleteProduct(e, product.id) } > Eliminar </button>
         </div>
       ))}
+      { error && <p> { error.message || error } </p> }
       </div>
   )
 }
