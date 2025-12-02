@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from '../components/Input'
-import { statusData, statusTranslations, translateStatus } from "../utils/statusTranslations";
-import usePostProduct from "../hooks/usePostProduct";
+import { statusData, statusTranslations } from "../utils/statusTranslations";
+import usePostProduct from "../hooks/products/usePostProduct";
 
 function CreateProductPage() {
   const navigate = useNavigate();

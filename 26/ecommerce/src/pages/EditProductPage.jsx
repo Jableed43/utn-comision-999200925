@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Input from "../components/Input";
 import { statusData, statusTranslations } from "../utils/statusTranslations";
-import usePutProduct from "../hooks/usePutProduct";
-import useGetProductById from "../hooks/useGetProductById";
+import usePutProduct from "../hooks/products/usePutProduct";
+import useGetProductById from "../hooks/products/useGetProductById";
 
 function EditProductPage() {
   // state

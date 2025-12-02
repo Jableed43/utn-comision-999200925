@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react'
-import { API_URL } from '../config.js'
+import { API_URL } from '../../config.js'
 
-function useGetProductById() {
+function useGetProducts() {
+    const [products, setProducts] = useState([])
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
 
-    const fetchProductById = async (productId) => {
+    const fetchProducts = async () => {
         setLoading(true)
         setError(null)
 
         // try - intenta ejecutar algo
         try {
-            const response = await fetch(`${API_URL}/products/${productId}`)
+            const response = await fetch(`${API_URL}/products`)
             
             // Validamos que no haya error en la consulta a la api
             if(!response.ok){
@@ -21,24 +22,26 @@ function useGetProductById() {
             // con objeto nos referimos a arrays y objetos nativos de js 
             // cualquier dato de js
             const data = await response.json()
+            console.log({data})
             // guardamos en nuestro estado la respuesta de la api en objeto de js
-
-            return data
-            
+            setProducts(data)
         } catch (error) {
             console.error(error)
             setError(error)
-            return null
+            setProducts([])
         } finally {
             // sea cual sea el resultado positivo o negativo
             // pasamos loading a false
             setLoading(false)
         }
     }
-
+    // al ejecutar el hook, necesitamos hacer el llamado a api
+    useEffect(() => {
+        fetchProducts()
+    }, [])
     // cuando la clave y el valor se llaman igual se escribe una sola vez
     // y representa tanto clave como valor
-    return { fetchProductById, error, loading }
+    return { products, error, loading }
 }
 
-export default useGetProductById
+export default useGetProducts

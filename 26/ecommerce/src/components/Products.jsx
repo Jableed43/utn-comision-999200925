@@ -1,4 +1,4 @@
-import useGetProducts from "../hooks/useGetProducts";
+import useGetProducts from "../hooks/products/useGetProducts";
 import ProductCard from "./ProductCard";
 
 function Products() {
