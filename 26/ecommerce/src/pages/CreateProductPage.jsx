@@ -51,7 +51,13 @@ function CreateProductPage() {
 
         {/* Image */}
         <Input label="Imagen" labelId="image" type="text" onChange={handleInputChange} value={form.image} isRequired={true} />
-
+      <br />
+        <img
+          style={{ width: "200px", height: "200px" }}
+          src={form.image}
+          alt={form.name}
+        />
+        <br />
         {/* Description */}
         <label htmlFor="description">Descripcion</label>
         <textarea name="description" required id="description" onChange={handleInputChange} value={form.description} placeholder="Escriba la descripcion del producto"></textarea>

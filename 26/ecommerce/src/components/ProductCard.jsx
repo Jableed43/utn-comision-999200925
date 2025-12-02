@@ -1,7 +1,12 @@
 import React from 'react'
 import useDeleteProduct from '../hooks/useDeleteProduct'
+import { useNavigate } from 'react-router-dom'
+import { statusTranslations } from '../utils/statusTranslations'
 
 function ProductCard({products}) {
+
+  const navigate = useNavigate()
+ 
 
   const {error, deleteProduct} = useDeleteProduct()
 
@@ -19,6 +24,11 @@ function ProductCard({products}) {
     }
   }
 
+  const handleEditProduct = (e, productId) => {
+    e.stopPropagation()
+    navigate(`/products/edit/${productId}`)
+  }
+
   return (
     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "10px", justifyContent: "center" }}>
       {products.map((product) => (
@@ -29,9 +39,10 @@ function ProductCard({products}) {
           <li> Precio: {product.price} </li>
           <li> Descripcion: {product.description} </li>
           <li> Stock: {product.stock} </li>
-          <li> Estado: {product.status} </li>
+          <li> Estado: {statusTranslations[product.status] || product.status} </li>
           </ul>
           <button onClick={ (e) => handleDeleteProduct(e, product.id) } > Eliminar </button>
+          <button onClick={(e) => handleEditProduct(e, product.id)} > Editar </button>
         </div>
       ))}
       { error && <p> { error.message || error } </p> }
