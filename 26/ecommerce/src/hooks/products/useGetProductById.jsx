@@ -5,7 +5,7 @@ function useGetProductById() {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
 
-    const fetchProductById = async (productId) => {
+    const getProductById = async (productId) => {
         setLoading(true)
         setError(null)
 
@@ -38,7 +38,7 @@ function useGetProductById() {
 
     // cuando la clave y el valor se llaman igual se escribe una sola vez
     // y representa tanto clave como valor
-    return { fetchProductById, error, loading }
+    return { getProductById, error, loading }
 }
 
 export default useGetProductById

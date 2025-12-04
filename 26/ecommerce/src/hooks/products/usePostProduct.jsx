@@ -4,7 +4,7 @@ import { API_URL } from "../../config";
 function usePostProduct() {
 const [error, setError] = useState(null)
 
-    const fetchProduct = async (formData) => {
+    const postProduct = async (formData) => {
         setError(null)
         try {
            const response = await fetch(`${API_URL}/products`, {
@@ -33,7 +33,7 @@ const [error, setError] = useState(null)
             setError(error)
         }
     }
-    return { error, fetchProduct}
+    return { error, postProduct}
 }
 
 export default usePostProduct

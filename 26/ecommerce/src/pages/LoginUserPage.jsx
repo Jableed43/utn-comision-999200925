@@ -1,31 +1,38 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Input from "../components/Input.jsx";
-import useRegisterUser from "../hooks/users/useRegisterUser.jsx";
+import React, { useState } from 'react'
+import useAuth from "../hooks/users/useAuth"
+import useLogin from "../hooks/users/useLogin"
+import { useNavigate } from 'react-router-dom'
+import Input from '../components/Input'
 
-function RegisterUserPage() {
-  const navigate = useNavigate();
+function LoginUserPage() {
+    const navigate = useNavigate()
+    // Autentica, guarda sesion
+    // le cambiamos el nombre
+  const { login: loginUser, user } = useAuth()
+  // Llama al back asegurando las credenciales correctas
+   const { login, error } = useLogin()
 
-  // hook de creacion
-  const { error, registerUser } = useRegisterUser();
   // state
   const [form, setForm] = useState({
-    name: "",
     email: "",
     password: "",
   });
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    console.log(form);
+
     // En null debemos mandar el hook
-    const success = await registerUser(form);
-    console.log(success);
-    alert("Usuario creado")
-    // if(success){
-    //       navigate("/users")
-    // }
+    // mandamos al back las credenciales, si responde con un usuario
+    // es porque es valido
+    const user = await login(form.email, form.password);
+    if(user){
+        // si el usuario es valido entonces lo guardamos en sessionStorage
+        loginUser(user)
+        alert("Login!")
+        navigate("/products")
+        window.location.reload()
+    }
+
   };
 
   const handleInputChange = (e) => {
@@ -35,23 +42,15 @@ function RegisterUserPage() {
       ...form,
       [e.target.name]: e.target.value
     })
-    
+    console.log({name: e.target.name, value: e.target.value})
   }
 
   return (
-    <div>
-      <h1> Registrar usuario </h1>
+    <>
+      <div>
+      <h1> Ingresá </h1>
 
       <form onSubmit={handleFormSubmit}>
-        {/* Name */}
-        <Input
-          label="Nombre"
-          labelId="name"
-          type="text"
-          onChange={handleInputChange}
-          value={form.name}
-          isRequired={true}
-        />
 
         {/* Email */}
         <Input
@@ -75,10 +74,11 @@ function RegisterUserPage() {
 
         {/* error puede ser null (falsy). si hay error lo muestra  */}
         {error && <p> {error.message || error} </p>}
-        <button type="submit"> Registrar usuario </button>
+        <button type="submit"> Ingresar </button>
       </form>
     </div>
-  );
+    </>
+  )
 }
 
-export default RegisterUserPage;
+export default LoginUserPage

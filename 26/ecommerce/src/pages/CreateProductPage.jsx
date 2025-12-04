@@ -8,7 +8,7 @@ function CreateProductPage() {
   const navigate = useNavigate();
 
   // hook de creacion
-  const { error, fetchProduct } = usePostProduct()
+  const { error, postProduct } = usePostProduct()
   // state
   const [form, setForm] = useState({
     name: "",
@@ -31,7 +31,7 @@ function CreateProductPage() {
   const handleFormSubmit = async (e) => {
     e.preventDefault()
     // En null debemos mandar el hook
-    const success = await fetchProduct(form)
+    const success = await postProduct(form)
     if(success){
           navigate("/products")
     }

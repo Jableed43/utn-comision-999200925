@@ -22,13 +22,13 @@ function EditProductPage() {
   // hook de creacion
   const {
     error: errorProductById,
-    fetchProductById,
+    getProductById,
     loading,
   } = useGetProductById();
 
   useEffect(() => {
     const loadProduct = async () => {
-      const response = await fetchProductById(id);
+      const response = await getProductById(id);
       if (response) {
         setForm({
           name: response.name,
