@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useDeleteProduct from "../hooks/products/useDeleteProduct";
 import { useNavigate } from "react-router-dom";
 import { statusTranslations } from "../utils/statusTranslations";
@@ -6,7 +6,7 @@ import useCreatePurchase from "../hooks/purchases/useCreatePurchase";
 import useAuth from "../hooks/users/useAuth"
 
 function ProductCard({ products }) {
-  const [products, setProducts] = useState([])
+  const [purchases, setPurchases] = useState([])
   const navigate = useNavigate();
   const { createPurchase, error: purchaseError } = useCreatePurchase();
     const { user, isAuthenticated } = useAuth()
@@ -62,7 +62,7 @@ function ProductCard({ products }) {
     }
 
     // cambiar products por purchase - proxima clase
-    setProducts(prevProducts => [...prevProducts, product]);
+    setPurchases(prevPurchases => [...prevPurchases, purchases]);
 
     //  await createPurchase()
   };
